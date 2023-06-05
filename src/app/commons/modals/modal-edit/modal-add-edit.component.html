@@ -1,0 +1,71 @@
+<div class="atom-modal">
+  <div class="atom-modal__edit">
+    <div class="atom-modal__content">
+      <div class="atom-modal__header">
+        <div class="atom-modal__action" (click)="onCloseModal()">
+          <atom-icon name="close" color="gray50" size="24"> </atom-icon>
+        </div>
+      </div>
+
+      <div class="atom-modal__body">
+        <h2 class="atom-modal__title">{{ data?.title }}</h2>
+
+        <form [formGroup]="form" class="atom-modal__form" autocomplete="off">
+          <mat-form-field appearance="outline">
+            <mat-label>Titulo: </mat-label>
+            <input formControlName="title" matInput />
+            <mat-error *ngIf="formError['title'].errors">
+              {{ messageRequiredItem }}</mat-error
+            >
+          </mat-form-field>
+
+          <mat-form-field class="atom-modal__textarea" appearance="outline">
+            <mat-label>Descripción: </mat-label>
+            <textarea formControlName="description" matInput></textarea>
+            <mat-error *ngIf="formError['description'].errors">
+              {{ messageRequiredItem }}</mat-error
+            >
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Estado</mat-label>
+            <mat-select formControlName="status">
+              <mat-option value="pending">
+                <div class="atom-modal__option">
+                  <div
+                    class="atom-modal__status atom-modal__status--yellow"
+                  ></div>
+                  Pendiente
+                </div>
+              </mat-option>
+              <mat-option value="complete">
+                <div class="atom-modal__option">
+                  <div
+                    class="atom-modal__status atom-modal__status--green"
+                  ></div>
+                  Completado
+                </div>
+              </mat-option>
+            </mat-select>
+            <mat-error *ngIf="formError['status'].errors">
+              {{ messageRequiredItem }}</mat-error
+            >
+          </mat-form-field>
+
+          <div class="atom-modal__button">
+            <button
+              color="warn"
+              mat-flat-button
+              (click)="sendForm()"
+              [disabled]="disableButton"
+            >
+              {{ data?.textButton }}
+            </button>
+
+            <button mat-button (click)="onCloseModal()">Cancelar</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

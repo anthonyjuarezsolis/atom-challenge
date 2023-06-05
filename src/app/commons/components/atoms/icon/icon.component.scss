@@ -1,0 +1,42 @@
+:host {
+  height: fit-content;
+  display: table;
+}
+
+.atom-icon-material {
+  font-family: "Material Icons";
+  width: 100%;
+  height: 100%;
+  display: flex;
+  line-height: initial;
+
+  &--outlined {
+    font-family: "Material Icons Outlined";
+  }
+
+  &--round {
+    font-family: "Material Icons Round";
+  }
+
+  &--sharp {
+    font-family: "Material Icons Sharp";
+  }
+
+  &--two-tone {
+    font-family: "Material Icons Two Tone";
+  }
+
+  &--default {
+    @extend .atom-icon-material;
+  }
+
+  &__mode {
+    &-button {
+      cursor: pointer;
+      transition: 0.3s;
+      &:active {
+        transform: scale(0.8);
+      }
+    }
+  }
+}

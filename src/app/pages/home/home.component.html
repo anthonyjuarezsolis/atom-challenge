@@ -1,0 +1,72 @@
+<div class="home">
+  <atom-header></atom-header>
+
+  <div class="home__container" *ngIf="!loading">
+    <div class="home__heading">
+      <h1 class="home__title">Lista de tareas</h1>
+      <h2 class="home__subtitle">
+        Gestiona todas tus tareas pendientes y completadas
+      </h2>
+    </div>
+
+    <!-- Emply -->
+    <div class="home__container" *ngIf="firebaseListInfo.length === 0">
+      <img
+        class="home__emply-img"
+        src="./../../../assets/emply.svg"
+        alt="emply-icon"
+        width="250"
+      />
+
+      <h1 class="home__emply-text">Empieza a gestionar tus pendientes</h1>
+      <div class="home__button">
+        <button color="warn" mat-flat-button (click)="onModalAdd()">
+          Agregar nueva tarea
+        </button>
+      </div>
+    </div>
+
+    <!-- Tareas -->
+    <!-- Tareas pendientes -->
+    <div class="home__list" *ngIf="pendingTasks.length !== 0">
+      <h3 class="home__list-label">Tareas pendientes</h3>
+      <ng-container
+        *ngFor="let item of pendingTasks; let i = index; trackBy: trackById"
+      >
+        <ng-container *ngIf="item.status === 'pending'">
+          <atom-checkbox-card
+            [title]="item?.title"
+            [subtitle]="item?.description"
+            (itemSelected)="menuSelected($event, item)"
+            (valueChanged)="updateStatus($event, item)"
+            [checked]="false"
+          ></atom-checkbox-card>
+        </ng-container>
+      </ng-container>
+    </div>
+
+    <!-- Tareas completas -->
+    <div class="home__list" *ngIf="completedTasks.length !== 0">
+      <h3 class="home__list-label">Tareas completas</h3>
+      <ng-container
+        *ngFor="let item of completedTasks; let i = index; trackBy: trackById"
+      >
+        <ng-container *ngIf="item.status === 'complete'">
+          <atom-checkbox-card
+            [title]="item?.title"
+            [subtitle]="item?.description"
+            (itemSelected)="menuSelected($event, item)"
+            (valueChanged)="updateStatus($event, item)"
+            [checked]="true"
+          ></atom-checkbox-card>
+        </ng-container>
+      </ng-container>
+    </div>
+  </div>
+
+  <div *ngIf="firebaseListInfo.length !== 0" class="home__fixed-button">
+    <button color="warn" mat-flat-button (click)="onModalAdd()">
+      Agregar nueva tarea
+    </button>
+  </div>
+</div>

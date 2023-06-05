@@ -1,0 +1,32 @@
+@use "/src/app/commons/base/colors" as colors;
+@use "/src/app/commons/base/breakpoints" as breakpoints;
+@use "/src/app/commons/utilities/utilities" as utilities;
+
+:host {
+  top: 0;
+  width: 100%;
+  position: absolute;
+}
+
+.header {
+  width: auto;
+  height: 80px;
+  padding: 0 112px;
+  background: colors.$white;
+  border-bottom: 1px solid colors.$grey;
+  box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.05);
+  @include utilities.atom-flexbox-param(flex, center, flex-start);
+
+  @include breakpoints.medium {
+    height: 72px;
+    padding: 0 16px;
+  }
+
+  &__logo {
+    height: 30px;
+
+    @include breakpoints.medium {
+      height: 28px;
+    }
+  }
+}

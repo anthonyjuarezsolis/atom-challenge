@@ -1,0 +1,62 @@
+/* Utilities
+   ========================================================================== */
+
+// placeholder
+
+%atom-truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.atom-truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@mixin atom-truncate-lines($size) {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: $size;
+  overflow: hidden;
+}
+
+// Mixin
+
+@mixin atom-flexbox-center() {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin atom-flexbox-start() {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+@mixin atom-flexbox-space-between() {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@mixin atom-flexbox-space-around() {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+@mixin atom-flexbox-param($display, $align, $justify) {
+  display: $display;
+  align-items: $align;
+  justify-content: $justify;
+}
+
+@mixin atom-font-details($size, $line-h, $weight, $color) {
+  font-size: $size;
+  line-height: $line-h;
+  font-weight: $weight;
+  color: $color;
+}

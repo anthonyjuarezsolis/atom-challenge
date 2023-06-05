@@ -1,0 +1,15 @@
+<ng-container>
+  <div class="menu" (click)="toggleMenu()">
+    <ng-content></ng-content>
+
+    <ul class="menu__container" [ngClass]="classes" *ngIf="showMenu">
+      <li
+        class="menu__item"
+        *ngFor="let item of items; let i = index"
+        (click)="onClick(item?.id)"
+      >
+        <span class="menu__label">{{ item?.label }}</span>
+      </li>
+    </ul>
+  </div>
+</ng-container>

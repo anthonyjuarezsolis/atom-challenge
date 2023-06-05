@@ -1,0 +1,27 @@
+<div class="checkbox-card" [ngClass]="{ 'checkbox-card__checked': checked }">
+  <div class="checkbox-card__wrapper">
+    <mat-checkbox
+      [checked]="checked"
+      (change)="onChange($event)"
+      class="checkbox-card__component"
+    ></mat-checkbox>
+    <div>
+      <h1 class="checkbox-card__title">{{ title }}</h1>
+      <h2 class="checkbox-card__subtitle">{{ subtitle }}</h2>
+    </div>
+  </div>
+
+  <atom-menu
+    position="center"
+    [items]="dataMenu"
+    (itemSelected)="getValueMenu($event)"
+  >
+    <atom-icon
+      size="20"
+      name="more_vert"
+      color="dark"
+      mode="button"
+      type="outlined"
+    ></atom-icon>
+  </atom-menu>
+</div>

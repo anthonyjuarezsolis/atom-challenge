@@ -34,10 +34,14 @@ Para este proyecto se uso:
 - `Reactive forms`
 - `Firebase | Firestore | Firebase Hosting`
 
+## Wireframe:
+
+Los Wireframes que hice antes de empezar el desarrollo y pasarlo a alta estan en el siguiente link: [Miro Project](https://miro.com/app/board/o9J_lys-mIY=/?share_link_id=345655632422).
+
 ## Live Preview:
 
 El proyecto se encuentra desplegado en el siguiente link: [Firebase Hosting](https://atom-challenge.web.app).
 
-## By:
+## Autor:
 
 Anthony Juarez Solis: [Linkedin Profile](https://www.linkedin.com/in/anthonyjuarez/).

@@ -47,7 +47,6 @@ export class HomeComponent {
         ),
       )
       .subscribe((data: Array<I_ModalItems>) => {
-        console.log(data);
         this.firebaseListInfo = data;
         this.completedTasks = data.filter((item) => item.status === 'complete');
         this.pendingTasks = data.filter((item) => item.status === 'pending');
